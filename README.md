@@ -1,46 +1,118 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img id="top" src="./src/assets/images/logo.svg" alt="Logo RocketShoes" />
+	
+</p>
 
-## Available Scripts
+<hr>
 
-In the project directory, you can run:
+<h1 align="center">Creating a shopping cart hook</h1>
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<p align="center">
+  <a href="#about">About</a> &#xa0; | &#xa0; 
+  <a href="#features">Features</a> &#xa0; | &#xa0;
+  <a href="#techs">Technologies</a> &#xa0; | &#xa0;
+  <a href="#requirements">Requeriments</a> &#xa0; | &#xa0;
+  <a href="#start">Start</a> &#xa0; | &#xa0;
+  <a href="https://moesiomarcelino.dev" target="_blank">Author</a> &#xa0; | &#xa0;
+  <a href="https://rocketshoes.moesiomarcelino.dev" target="_blank">Demo</a>
+</p>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<br>
 
-### `yarn test`
+<h1 align="center">
+  <img alt="RocketShoes" width="100%" title="#RocketShoes" src="https://user-images.githubusercontent.com/37598129/112547655-cafca600-8d99-11eb-98d8-eddf4ec26d23.GIF" />
+</h1>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<h2 align="center" styles="display: flex; align-items: center">
+	Status | 
+	<img src="https://api.netlify.com/api/v1/badges/97fa61a2-829e-43ea-97b3-1325c4bacb44/deploy-status" />
+</h2>
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h4 align="center"> 
+	<p align="center">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/moesiomarcelino/ignite-creating-hook-shopping-cart.svg">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/moesiomarcelino/ignite-creating-hook-shopping-cart.svg">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  <a href="https://www.codacy.com/app/moesiomarcelino/ignite-creating-hook-shopping-cart?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=moesiomarcelino/ignite-creating-hook-shopping-cart&amp;utm_campaign=Badge_Grade">
+    <img alt="Codacy grade" src="https://img.shields.io/codacy/grade/1b577a07dda843aba09f4bc55d1af8fc.svg">
+  </a>
 
-### `yarn eject`
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/moesiomarcelino/ignite-creating-hook-shopping-cart.svg">
+  <a href="https://github.com/moesiomarcelino/ignite-creating-hook-shopping-cart/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/moesiomarcelino/ignite-creating-hook-shopping-cart.svg">
+  </a>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  <a href="https://github.com/moesiomarcelino/ignite-creating-hook-shopping-cart/issues">
+    <img alt="Repository issues" src="https://img.shields.io/github/issues/moesiomarcelino/ignite-creating-hook-shopping-cart.svg">
+  </a>
+</p>
+</h4> 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<div id="about" ></div>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## :dart: About ##
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Rocketshoes is an application developed with challenge on trail ReactJS from Ignite on Rocketseat. Your principal function is manager a shopping cart with React Hook.
 
-## Learn More
+<div id="features" ></div>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## :sparkles: Features ##
+:heavy_check_mark: Add products to shopping cart list;\
+:heavy_check_mark: Increment and Decrement products on cart list;\
+:heavy_check_mark: Remove items from shopping cart list;
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<div id="techs" ></div>
+
+## :rocket: Technologies ##
+
+-  [ReactJS](https://reactjs.org/)
+-  [React Router](https://github.com/ReactTraining/react-router)
+-  [Axios](https://github.com/axios/axios)
+-  [Polished](https://polished.js.org/)
+-  [React-Toastify](https://fkhadra.github.io/react-toastify/)
+-  [styled-components](https://www.styled-components.com/)
+-  [React-Icons](https://react-icons.netlify.com/)
+-  [json-server](https://github.com/typicode/json-server)
+-  [VS Code](https://code.visualstudio.com) with [EditorConfig](https://editorconfig.org) and [ESLint](https://eslint.org)
+
+<div id="requirements" ></div>
+
+## :white_check_mark: Requeriments ##
+
+- [Git](https://git-scm.com)
+- [Node](https://nodejs.org/en/)
+
+<div id="start" ></div>
+
+## :checkered_flag: Start ##
+
+```bash
+# Cloning project
+$ git clone https://github.com/moesiomarcelino/ignite-creating-hook-shopping-cart
+
+# Enter in project folder
+$ cd ignite-creating-hook-shopping-cart
+
+# Install dependencies
+$ yarn // or npm install
+
+# Start project
+$ yarn start // or npm start
+
+# Server starts on http://localhost:3000
+
+# Start Fake API
+$ yarn server // or npm server
+
+# Fake API starts on http://localhost:3333
+```
+
+Feito com :heart: por <a href="https://moesiomarcelino.dev" target="_blank">Moésio Marcelino</a>
+
+&#xa0;
+
+<a href="#top">Voltar ao topo</a>
