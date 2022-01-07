@@ -53,7 +53,7 @@ export const LogoImg = styled.img`
   height: auto;
 `;
 
-export const Cart = styled(Link)`
+export const MyCart = styled(Link)`
   display: flex;
   flex-direction: row;
   align-items: center;

@@ -14,8 +14,8 @@ export const Container = styled.div`
     align-items: center;
 
     button {
-      background: #7159c1;
-      color: black;
+      background: #3b75f9;
+      color: #fff;
       border: 0;
       border-radius: 4px;
       padding: 12px 20px;
@@ -96,6 +96,19 @@ export const ProductTable = styled.table`
       }
     }
   }
+`;
+
+export const FreeFreight = styled.span`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  color: #fff;
+  width: 340px;
+  border-radius: 10px;
+  background: green;
+  margin: 45px 0 20px 25%;
+  padding: 10px;
 `;
 
 export const Total = styled.div`

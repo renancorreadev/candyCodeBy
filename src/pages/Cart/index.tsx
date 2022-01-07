@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   MdDelete,
   MdAddCircleOutline,
@@ -7,7 +7,7 @@ import {
 
 import { useCart } from "../../hooks/useCart";
 import { formatPrice } from "../../util/format";
-import { Container, ProductTable, Total } from "./styles";
+import { Container, ProductTable, Total, FreeFreight } from "./styles";
 
 interface Product {
   id: number;
@@ -19,24 +19,23 @@ interface Product {
 
 export function Cart() {
   const { cart, removeProduct, updateProductAmount } = useCart();
+  const [freeFreight, setFreeFreight] = useState(false);
 
   const cartFormatted = cart.map((product) => ({
     ...product,
-    priceFormatted: formatPrice(product.price),
+    priceFormatted: formatPrice(product.price / 100),
     subTotal: formatPrice((product.price * product.quantity) / 100),
   }));
 
   const total = formatPrice(
     cart.reduce((sumTotal, product) => {
-      return (sumTotal + product.price * product.quantity) / 100;
+      return sumTotal + (product.price * product.quantity) / 100;
     }, 0)
   );
 
-  const prices = formatPrice(
-    cart.reduce((sumTotal, product) => {
-      return product.price / 100;
-    }, 0)
-  );
+  const totalPrice = cart.reduce((sumTotal, product) => {
+    return sumTotal + (product.price * product.quantity) / 100;
+  }, 0);
 
   function handleProductIncrement(product: Product) {
     updateProductAmount({
@@ -55,6 +54,14 @@ export function Cart() {
   function handleRemoveProduct(productId: number) {
     removeProduct(productId);
   }
+
+  useEffect(() => {
+    if (totalPrice >= 10) {
+      setFreeFreight(true);
+    } else {
+      setFreeFreight(false);
+    }
+  }, [totalPrice]);
 
   return (
     <Container>
@@ -76,7 +83,7 @@ export function Cart() {
               </td>
               <td>
                 <strong>{product.name}</strong>
-                <span>{prices}</span>
+                <span>{product.priceFormatted}</span>
               </td>
               <td>
                 <div>
@@ -120,6 +127,11 @@ export function Cart() {
         </tbody>
       </ProductTable>
 
+      {freeFreight ? (
+        <FreeFreight>Parabéns, sua compra tem frete grátis!</FreeFreight>
+      ) : (
+        ""
+      )}
       <footer>
         <button type="button">Finalizar pedido</button>
 
