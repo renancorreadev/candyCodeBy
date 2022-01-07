@@ -55,6 +55,10 @@ export function Cart() {
     removeProduct(productId);
   }
 
+  function handleConfirm() {
+    alert("Pedido realizado com sucesso!");
+  }
+
   useEffect(() => {
     if (totalPrice >= 10) {
       setFreeFreight(true);
@@ -133,7 +137,9 @@ export function Cart() {
         ""
       )}
       <footer>
-        <button type="button">Finalizar pedido</button>
+        <button type="button" onClick={() => handleConfirm()}>
+          Finalizar pedido
+        </button>
 
         <Total>
           <span>TOTAL</span>
