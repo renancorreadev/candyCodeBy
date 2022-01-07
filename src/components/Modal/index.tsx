@@ -36,7 +36,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
     return () => {
       document.removeEventListener("keydown", onKeyDown, false);
     };
-    //disable eslint
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isShown]);
 
   useEffect(() => {
@@ -47,6 +47,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
     return () => {
       document.removeEventListener("keydown", onKeyDown, false);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isShown]);
 
   const modal = (
@@ -57,7 +58,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
           <StyledModal>
             <Header>
               <HeaderText>{headerText}</HeaderText>
-              <CloseButton onClick={hide}>X</CloseButton>
+              <CloseButton onClick={hide}>X | esc</CloseButton>
             </Header>
             <Content>{modalContent}</Content>
           </StyledModal>

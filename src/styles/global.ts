@@ -26,4 +26,11 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
   }
+
+  @media (max-width: 768px) {
+    * {
+      max-width: 100%;
+      overflow: auto;
+    }
+  }
 `;

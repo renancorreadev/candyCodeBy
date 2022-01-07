@@ -13,11 +13,18 @@ export const ProductList = styled.ul`
     flex-direction: column;
     background: #fff;
     border-radius: 4px;
+    margin-top: 30px;
     padding: 20px;
+    box-shadow: -7px 8px 8px 18px rgb(0 0 0 / 10%);
 
     img {
+      width: 90%;
       align-self: center;
-      max-width: 250px;
+      max-width: 300px;
+
+      @media (max-width: 768px) {
+        max-width: 200px;
+      }
     }
 
     > strong {
@@ -34,7 +41,7 @@ export const ProductList = styled.ul`
     }
 
     button {
-      background: #7159c1;
+      background: #3b80f9;
       color: #fff;
       border: 0;
       border-radius: 4px;
@@ -46,7 +53,7 @@ export const ProductList = styled.ul`
       transition: background 0.2s;
 
       &:hover {
-        background: ${darken(0.06, "#7159c1")};
+        background: ${darken(0.06, "#3b75f9")};
       }
 
       div {
@@ -66,5 +73,10 @@ export const ProductList = styled.ul`
         font-weight: bold;
       }
     }
+  }
+
+  @media (max-width: 720px) {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
   }
 `;

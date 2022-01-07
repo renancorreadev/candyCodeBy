@@ -55,11 +55,12 @@ export const CloseButton = styled.button`
   font-family: "Poppins", sans-serif;
   color: rgba(0, 20, 15, 0.8);
   font-weight: bold;
-  font-size: 20px;
+  font-size: 16px;
 
   border: none;
   border-radius: 3px;
   margin-left: 0.5rem;
+  margin-right: 20px;
   background: none;
   :hover {
     cursor: pointer;
@@ -67,7 +68,7 @@ export const CloseButton = styled.button`
 `;
 export const Content = styled.div`
   padding: 10px;
-  max-height: auto;
+  max-height: 680px;
   overflow-x: hidden;
   overflow-y: auto;
 `;

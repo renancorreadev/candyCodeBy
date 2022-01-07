@@ -24,7 +24,7 @@ export const Container = styled.div`
       transition: background 0.2s;
 
       &:hover {
-        background: ${darken(0.06, "#7159c1")};
+        background: ${darken(0.06, "#3b75f9")};
       }
     }
   }
@@ -42,10 +42,18 @@ export const ProductTable = styled.table`
   tbody td {
     padding: 12px;
     border-bottom: 1px solid #eee;
+
+    @media (max-width: 720px) {
+      padding: 0px !important;
+    }
   }
 
   img {
     height: 100px;
+
+    @media (max-width: 720px) {
+      display: none;
+    }
   }
 
   strong {
@@ -79,13 +87,13 @@ export const ProductTable = styled.table`
     padding: 6px;
 
     svg {
-      color: #7159c1;
+      color: #3b75f9;
       transition: color 0.2s;
     }
 
     &:hover {
       svg {
-        color: ${darken(0.06, "#7159c1")};
+        color: #1022f9;
       }
     }
 
@@ -95,6 +103,9 @@ export const ProductTable = styled.table`
         cursor: not-allowed;
       }
     }
+
+    @media (min-width: 768px) {
+    }
   }
 `;
 
@@ -103,12 +114,17 @@ export const FreeFreight = styled.span`
   flex-direction: row;
   justify-content: center;
 
-  color: #fff;
+  color: #1e6b03;
   width: 340px;
   border-radius: 10px;
-  background: green;
-  margin: 45px 0 20px 25%;
+  background: #c7ffa5;
+  font-weight: bold;
+  margin: 45px 0 20px 20%;
   padding: 10px;
+
+  @media (max-width: 768px) {
+    margin: 45px 0 20px 0%;
+  }
 `;
 
 export const Total = styled.div`

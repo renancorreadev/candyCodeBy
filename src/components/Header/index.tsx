@@ -35,6 +35,7 @@ export function Header() {
       <React.Fragment>
         <MyCart to="" onClick={toggle}>
           {" "}
+          <strong>Meu carrinho</strong>
           <div>
             {" "}
             <span data-testid="cart-size">

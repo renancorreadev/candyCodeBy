@@ -1,6 +1,8 @@
 {
   "name": "creating_hook_shopping_cart",
   "version": "0.1.0",
+  "description": "Projeto de teste",
+  "author": "Renan Cesar (skyxcripto)",
   "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -20,6 +22,7 @@
     "react-scripts": "4.0.3",
     "react-toastify": "^7.0.3",
     "styled-components": "^5.2.1",
+    "focus-lock": "latest",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },

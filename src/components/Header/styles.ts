@@ -29,36 +29,41 @@ export const Container = styled.div`
   }
 
   .nav-link {
-    position: fixed;
-    right: 40rem;
-    margin-right: 30%;
+    position: relative;
+    right: 30vh;
   }
 
   @media (max-width: 1300px) {
     .nav-link {
-      right: 10rem;
-      margin-right: 50%;
+      right: 12vh;
     }
   }
   @media (max-width: 720px) {
     .nav-link {
-      left: 8rem;
-      margin-left: 10%;
+      left: 100vh;
     }
   }
 `;
 
 export const LogoImg = styled.img`
-  width: 20%;
+  width: 50%;
   height: auto;
 `;
 
 export const MyCart = styled(Link)`
+  position: relative;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-end;
   text-decoration: none;
-  margin-left: 20px;
+  left: 45vh;
+
+  @media (max-width: 1300px) {
+    left: 30vh;
+  }
+  @media (max-width: 900px) {
+    left: -10vh;
+  }
 
   div {
     text-align: right;
