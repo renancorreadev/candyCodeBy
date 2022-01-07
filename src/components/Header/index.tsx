@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "../../assets/Logo.png";
 import { MdShoppingBasket } from "react-icons/md";
 
 import { Container, LogoImg, MyCart } from "./styles";
 import { useCart } from "../../hooks/useCart";
+import Logo from "../../assets/logo.png";
 
 import { Modal } from "../Modal";
 import { useModal } from "../../hooks/useModal";
