@@ -6,14 +6,17 @@ import { ToastContainer } from "react-toastify";
 import GlobalStyles from "./styles/global";
 import { Routes } from "./routes";
 import { Header } from "./components/Header";
+import { CartProvider } from "./hooks/useCart";
 
 export default function App() {
   return (
     <BrowserRouter>
-      <GlobalStyles />
-      <Header />
-      <Routes />
-      <ToastContainer />
+      <CartProvider>
+        <GlobalStyles />
+        <Header />
+        <Routes />
+        <ToastContainer />
+      </CartProvider>
     </BrowserRouter>
   );
 }
