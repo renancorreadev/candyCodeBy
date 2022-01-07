@@ -17,7 +17,7 @@
   </tr>
 </table>
 
-## :dart: About ##
+## :dart: Sobre ##
 
 Aplicativo de teste, As principais funcionalidades são:  
 
