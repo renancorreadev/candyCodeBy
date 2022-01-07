@@ -59,18 +59,18 @@ $ git clone https://github.com/skyxcripto/candyCodeBy
 # Entrar na pasta do projeto 
 $ cd candyCodeBy
 
-# instalar as depêndencias
+# Instalar as depêndencias
 $ yarn // or npm install
 
-# Start project
+# Iniciar o projeto
 $ yarn start // or npm start
 
 # O projeto é iniciado em http://localhost:3000
 
-# Start Fake API
+# Iniciar o Fake API
 $ yarn server // or npm server
 
-# Fake API é iniciado em http://localhost:3333
+# O Fake API é iniciado em http://localhost:3333
 ```
 
 
