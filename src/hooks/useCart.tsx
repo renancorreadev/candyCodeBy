@@ -11,14 +11,14 @@ interface CartProviderProps {
 
 interface UpdateProductAmount {
   productId: number;
-  amount: number;
+  quantity: number;
 }
 
 interface CartContextData {
   cart: Product[];
   addProduct: (productId: number) => Promise<void>;
   removeProduct: (productId: number) => void;
-  updateProductAmount: ({ productId, amount }: UpdateProductAmount) => void;
+  updateProductAmount: ({ productId, quantity }: UpdateProductAmount) => void;
 }
 
 const CartContext = createContext<CartContextData>({} as CartContextData);
@@ -48,7 +48,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
             setCart([...cart, { ...product, quantity: 1 }]);
             localStorage.setItem(
               "@CandyStore:cart",
-              JSON.stringify([...cart, { ...product, amount: 1 }])
+              JSON.stringify([...cart, { ...product, quantity: 1 }])
             );
             return;
           }
@@ -62,7 +62,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
               product.id === productId
                 ? {
                     ...product,
-                    amount: Number(product.quantity) + 1,
+                    quantity: Number(product.quantity) + 1,
                   }
                 : product
             );
@@ -91,7 +91,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
             setCart([...cart, { ...productFinded, quantity: 1 }]);
             localStorage.setItem(
               "@CandyStore:cart",
-              JSON.stringify([...cart, { ...productFinded, amount: 1 }])
+              JSON.stringify([...cart, { ...productFinded, quantity: 1 }])
             );
             return;
           }
@@ -108,7 +108,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
               product.id === productId
                 ? {
                     ...product,
-                    amount: Number(product.quantity) + 1,
+                    quantity: Number(product.quantity) + 1,
                   }
                 : product
             );
@@ -149,18 +149,18 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
 
   const updateProductAmount = async ({
     productId,
-    amount,
+    quantity,
   }: UpdateProductAmount) => {
     try {
       if (process.env.NODE_ENV !== "production") {
-        if (amount < 1) {
+        if (quantity < 1) {
           toast.error("Erro na alteração de quantidade do produto");
           return;
         }
 
         const response = await api.get(`/items/${productId}`);
-        const productAmount = response.data.amount;
-        const stockIsFree = amount > productAmount;
+        const productAmount = response.data.quantity;
+        const stockIsFree = quantity > productAmount;
 
         if (stockIsFree) {
           toast.error("Quantidade solicitada fora de estoque");
@@ -179,14 +179,14 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
           cartItem.id === productId
             ? {
                 ...cartItem,
-                amount: amount,
+                quantity: quantity,
               }
             : cartItem
         );
         setCart(updatedCart);
         localStorage.setItem("@RocketShoes:cart", JSON.stringify(updatedCart));
       } else {
-        if (amount < 1) {
+        if (quantity < 1) {
           toast.error("Erro na alteração de quantidade do produto");
           return;
         }
@@ -201,7 +201,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
         }
 
         const productAmount = productStocked.amount;
-        const stockIsFree = amount > productAmount;
+        const stockIsFree = quantity > productAmount;
 
         if (stockIsFree) {
           toast.error("Quantidade solicitada fora de estoque");
@@ -220,7 +220,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
           cartItem.id === productId
             ? {
                 ...cartItem,
-                amount: amount,
+                quantity: quantity,
               }
             : cartItem
         );

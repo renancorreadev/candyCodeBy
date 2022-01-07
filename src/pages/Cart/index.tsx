@@ -23,25 +23,32 @@ export function Cart() {
   const cartFormatted = cart.map((product) => ({
     ...product,
     priceFormatted: formatPrice(product.price),
-    subTotal: formatPrice(product.price * product.quantity),
+    subTotal: formatPrice((product.price * product.quantity) / 100),
   }));
+
   const total = formatPrice(
     cart.reduce((sumTotal, product) => {
-      return sumTotal + product.price * product.quantity;
+      return (sumTotal + product.price * product.quantity) / 100;
+    }, 0)
+  );
+
+  const prices = formatPrice(
+    cart.reduce((sumTotal, product) => {
+      return product.price / 100;
     }, 0)
   );
 
   function handleProductIncrement(product: Product) {
     updateProductAmount({
       productId: product.id,
-      amount: product.quantity + 1,
+      quantity: product.quantity + 1,
     });
   }
 
   function handleProductDecrement(product: Product) {
     updateProductAmount({
       productId: product.id,
-      amount: product.quantity - 1,
+      quantity: product.quantity - 1,
     });
   }
 
@@ -69,7 +76,7 @@ export function Cart() {
               </td>
               <td>
                 <strong>{product.name}</strong>
-                <span>{product.priceFormatted}</span>
+                <span>{prices}</span>
               </td>
               <td>
                 <div>
