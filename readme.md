@@ -6,10 +6,16 @@
 
 <br>
 
-<h1 align="center">
-  <img alt="main" width="50%" title="#main" src="https://github.com/skyxcripto/Teste_CodeBy/blob/main/public/main.png" />
-</h1>
-
+<table>
+  <tr>
+    <td><h1 align="center">
+  <img alt="main" width="50%" title="#main" src="https://github.com/skyxcripto/candyCodeBy/blob/main/public/main.png" />
+</h1></td>
+   <td><h1 align="center">
+  <img alt="main" width="50%" title="#main" src="https://github.com/skyxcripto/candyCodeBy/blob/main/public/cart2.png" />
+</h1></td>
+  </tr>
+</table>
 
 ## :dart: About ##
 
@@ -48,10 +54,10 @@ Aplicativo de teste, As principais funcionalidades são:
 
 ```bash
 # Clonar o projeto
-$ git clone https://github.com/skyxcripto/Teste_CodeBy
+$ git clone https://github.com/skyxcripto/candyCodeBy
 
 # Entrar na pasta do projeto 
-$ cd Teste_CodeBy
+$ cd candyCodeBy
 
 # instalar as depêndencias
 $ yarn // or npm install
