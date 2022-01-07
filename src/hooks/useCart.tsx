@@ -25,7 +25,7 @@ const CartContext = createContext<CartContextData>({} as CartContextData);
 
 export function CartProvider({ children }: CartProviderProps): JSX.Element {
   const [cart, setCart] = useState<Product[]>(() => {
-    const storagedCart = localStorage.getItem("@RocketShoes:cart");
+    const storagedCart = localStorage.getItem("@CandyStore:cart");
 
     if (storagedCart) {
       return JSON.parse(storagedCart);
@@ -41,13 +41,13 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
 
         if (!productExistsInCart) {
           const { data: product } = await api.get<Product>(
-            `/products/${productId}`
+            `/items/${productId}`
           );
 
-          if (product.amount > 0) {
-            setCart([...cart, { ...product, amount: 1 }]);
+          if (product.quantity > 0) {
+            setCart([...cart, { ...product, quantity: 1 }]);
             localStorage.setItem(
-              "@RocketShoes:cart",
+              "@CandyStore:cart",
               JSON.stringify([...cart, { ...product, amount: 1 }])
             );
             return;
@@ -55,14 +55,14 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
         }
 
         if (productExistsInCart) {
-          const { data: stock } = await api.get<Product>(`/stock/${productId}`);
+          const { data: stock } = await api.get<Product>(`/items/${productId}`);
 
-          if (stock.amount > productExistsInCart.amount) {
+          if (stock.quantity > productExistsInCart.quantity) {
             const cartUpdated = cart.map((product) =>
               product.id === productId
                 ? {
                     ...product,
-                    amount: Number(product.amount) + 1,
+                    amount: Number(product.quantity) + 1,
                   }
                 : product
             );
@@ -70,7 +70,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
             setCart(cartUpdated);
 
             localStorage.setItem(
-              "@RocketShoes:cart",
+              "@CandyStore:cart",
               JSON.stringify(cartUpdated)
             );
             return;
@@ -88,9 +88,9 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
           const stockFinded = productsServed.find(({ id }) => id === productId);
 
           if (stockFinded && stockFinded.amount > 0 && productFinded) {
-            setCart([...cart, { ...productFinded, amount: 1 }]);
+            setCart([...cart, { ...productFinded, quantity: 1 }]);
             localStorage.setItem(
-              "@RocketShoes:cart",
+              "@CandyStore:cart",
               JSON.stringify([...cart, { ...productFinded, amount: 1 }])
             );
             return;
@@ -100,12 +100,15 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
         if (productExistsInCart) {
           const stockFinded = productsServed.find(({ id }) => id === productId);
 
-          if (stockFinded && stockFinded.amount > productExistsInCart.amount) {
+          if (
+            stockFinded &&
+            stockFinded.amount > productExistsInCart.quantity
+          ) {
             const cartUpdated = cart.map((product) =>
               product.id === productId
                 ? {
                     ...product,
-                    amount: Number(product.amount) + 1,
+                    amount: Number(product.quantity) + 1,
                   }
                 : product
             );
@@ -113,7 +116,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
             setCart(cartUpdated);
 
             localStorage.setItem(
-              "@RocketShoes:cart",
+              "@CandyStore:cart",
               JSON.stringify(cartUpdated)
             );
             return;
@@ -138,7 +141,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
 
       const cartUpdated = cart.filter(({ id }) => id !== productId);
       setCart(cartUpdated);
-      localStorage.setItem("@RocketShoes:cart", JSON.stringify(cartUpdated));
+      localStorage.setItem("@CandyStore:cart", JSON.stringify(cartUpdated));
     } catch {
       toast.error("Erro na remoção do produto");
     }
@@ -155,7 +158,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
           return;
         }
 
-        const response = await api.get(`/stock/${productId}`);
+        const response = await api.get(`/items/${productId}`);
         const productAmount = response.data.amount;
         const stockIsFree = amount > productAmount;
 
@@ -231,7 +234,12 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
 
   return (
     <CartContext.Provider
-      value={{ cart, addProduct, removeProduct, updateProductAmount }}
+      value={{
+        cart,
+        addProduct,
+        removeProduct,
+        updateProductAmount,
+      }}
     >
       {children}
     </CartContext.Provider>
@@ -240,6 +248,5 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
 
 export function useCart(): CartContextData {
   const context = useContext(CartContext);
-
   return context;
 }

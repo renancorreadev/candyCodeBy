@@ -14,7 +14,7 @@ interface Product {
   name: string;
   price: number;
   imageUrl: string;
-  amount: number;
+  quantity: number;
 }
 
 export function Cart() {
@@ -23,20 +23,26 @@ export function Cart() {
   const cartFormatted = cart.map((product) => ({
     ...product,
     priceFormatted: formatPrice(product.price),
-    subTotal: formatPrice(product.price * product.amount),
+    subTotal: formatPrice(product.price * product.quantity),
   }));
   const total = formatPrice(
     cart.reduce((sumTotal, product) => {
-      return sumTotal + product.price * product.amount;
+      return sumTotal + product.price * product.quantity;
     }, 0)
   );
 
   function handleProductIncrement(product: Product) {
-    updateProductAmount({ productId: product.id, amount: product.amount + 1 });
+    updateProductAmount({
+      productId: product.id,
+      amount: product.quantity + 1,
+    });
   }
 
   function handleProductDecrement(product: Product) {
-    updateProductAmount({ productId: product.id, amount: product.amount - 1 });
+    updateProductAmount({
+      productId: product.id,
+      amount: product.quantity - 1,
+    });
   }
 
   function handleRemoveProduct(productId: number) {
@@ -70,7 +76,7 @@ export function Cart() {
                   <button
                     type="button"
                     data-testid="decrement-product"
-                    disabled={product.amount <= 1}
+                    disabled={product.quantity <= 1}
                     onClick={() => handleProductDecrement(product)}
                   >
                     <MdRemoveCircleOutline size={20} />
@@ -79,7 +85,7 @@ export function Cart() {
                     type="text"
                     data-testid="product-amount"
                     readOnly
-                    value={product.amount}
+                    value={product.quantity}
                   />
                   <button
                     type="button"
