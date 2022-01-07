@@ -4,14 +4,16 @@ import { ToastContainer } from "react-toastify";
 
 //Imports files
 import GlobalStyles from "./styles/global";
+import { Routes } from "./routes";
+import { Header } from "./components/Header";
 
-const App = (): JSX.Element => {
+export default function App() {
   return (
     <BrowserRouter>
       <GlobalStyles />
+      <Header />
+      <Routes />
       <ToastContainer />
     </BrowserRouter>
   );
-};
-
-export default App;
+}
