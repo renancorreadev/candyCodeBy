@@ -9,10 +9,10 @@
 <table>
   <tr>
     <td><h1 align="center">
-  <img alt="main" width="50%" title="#main" src="https://github.com/skyxcripto/candyCodeBy/blob/main/public/main.png" />
+  <img alt="main" width="100%" title="#main" src="https://github.com/skyxcripto/candyCodeBy/blob/main/public/main.png" />
 </h1></td>
    <td><h1 align="center">
-  <img alt="main" width="50%" title="#main" src="https://github.com/skyxcripto/candyCodeBy/blob/main/public/cart2.png" />
+  <img alt="main" width="100%" title="#main" src="https://github.com/skyxcripto/candyCodeBy/blob/main/public/cart2.png" />
 </h1></td>
   </tr>
 </table>
